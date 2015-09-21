@@ -10,7 +10,6 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,7 +17,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.assignment.doormint.asynctasks.RequestDataTask;
+import com.assignment.doormint.asynctasks.BackgroundTask;
 import com.assignment.doormint.common.Constants;
 import com.assignment.doormint.listeners.DataTaskListener;
 
@@ -108,7 +107,7 @@ public class FoodTruckActivity extends Activity implements DataTaskListener {
             Toast.makeText(getApplicationContext(), getString(R.string.no_internet_connection), Toast.LENGTH_LONG).show();
         } else {
             resetData();
-            new RequestDataTask(FoodTruckActivity.this, FoodTruckActivity.this).execute(Constants.JSON_URL);
+            new BackgroundTask(FoodTruckActivity.this, FoodTruckActivity.this).execute();
 
         }
     }

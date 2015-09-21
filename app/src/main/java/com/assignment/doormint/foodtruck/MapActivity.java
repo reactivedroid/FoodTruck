@@ -64,7 +64,7 @@ public class MapActivity extends Activity {
         map.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
 
         MarkerOptions options = new MarkerOptions().position(new LatLng(latitude, longitude)).title(locDescription).snippet(food);
-        Marker foodMarker = map.addMarker(options);
+        final Marker foodMarker = map.addMarker(options);
         foodMarker.showInfoWindow();
 
         map.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
@@ -73,7 +73,7 @@ public class MapActivity extends Activity {
                 Toast.makeText(getApplicationContext(),
                         getString(R.string.location) + Constants.ST_COLON + location, Toast.LENGTH_SHORT)
                         .show();
-                return true;
+                return false;
             }
         });
     }
